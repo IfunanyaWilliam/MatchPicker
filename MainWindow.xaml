@@ -18,6 +18,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" Grid.Column="0" Grid.Row="0" Width="95" Margin="20" MouseDown="AnimalClicked" />
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" Grid.Column="0" Grid.Row="1" Width="95" Margin="20" MouseDown="AnimalClicked"/>
@@ -38,7 +39,9 @@
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" Grid.Column="3" Grid.Row="1" Width="95" MouseDown="AnimalClicked"/>
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" Grid.Column="3" Grid.Row="2" Width="95" MouseDown="AnimalClicked"/>
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" Grid.Column="3" Grid.Row="3" Width="95" MouseDown="AnimalClicked"/>
-        
+        <TextBlock x:Name="TimerTextBlock"  Text="Elapsed Time:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"  Grid.Row="4" Grid.ColumnSpan="4" Padding="20" MouseDown="TimerTextBlock_Clicked"/>
+
+
     </Grid>
 
 </Window>
