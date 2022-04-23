@@ -22,6 +22,7 @@ namespace MatchPicker
     public partial class MainWindow : Window
     {
         DispatcherTimer timer = new DispatcherTimer();
+        private readonly List<double> record;
         int timeElapsed;
         int matchesFound;
         TextBlock lastTextBlockClicked;
@@ -33,6 +34,7 @@ namespace MatchPicker
             timer.Interval = TimeSpan.FromSeconds(.1);
             timer.Tick += Timer_Tick;
             GameInit();
+            record = new List<double>();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -42,8 +44,43 @@ namespace MatchPicker
             if(matchesFound == 8)
             {
                 timer.Stop();
-                TimerTextBlock.Text = TimerTextBlock.Text + " Game is over, Play again";
+                TimerTextBlock.Text = TimerTextBlock.Text + " Game is over, Play again \n" + PlayerRecord();
             }
+        }
+
+        public double ConvertScoreToInt(string st)
+        {
+            string playerScore1 = st.Remove(st.Length - 1);
+            double newScore = Convert.ToDouble(playerScore1);
+            return newScore;
+        }
+
+        /// <summary>
+        /// Checks player score and tells if player set a record
+        /// </summary>
+        /// <returns></returns>
+        private string PlayerRecord()
+        {
+            if (record.Count == 0)
+            {
+                record.Add(ConvertScoreToInt(TimerTextBlock.Text));
+                return " This is your first attempt. Be faster next time";
+            }
+            else
+            {
+                foreach(var score in record)
+                {
+                    if(score < ConvertScoreToInt(TimerTextBlock.Text))
+                    {
+                        record.Add(ConvertScoreToInt(TimerTextBlock.Text));
+                        return " You did not finish fast enough";
+                    }
+                }
+
+            }
+
+            record.Add(ConvertScoreToInt(TimerTextBlock.Text));
+            return "Congrats! You just set a new record";
         }
 
         private void TimerTextBlock_Clicked(object sender, MouseButtonEventArgs e)
@@ -58,7 +95,7 @@ namespace MatchPicker
         {
             List<string> animalEmoji = new List<string>()
             {
-                "🐙", "🐘", "🐘", "🐝", "🐙", "🐝",  "🐶", "🐶", "🦘", "🐜", "🐜", "🐢", "🐢", "🐫", "🐫", "🦘"
+                "🐙", "🐘", "🐝", "🐘", "🐙", "🐝", "🐶", "🦘", "🐜", "🐶", "🐜", "🐢", "🐫", "🐢", "🐫", "🦘"
             };
 
             Random random = new Random();

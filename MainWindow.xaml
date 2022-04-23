@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MatchPicker"
         mc:Ignorable="d"
-        Title="Animal Match Picker Game" Height="500" Width="450">
+        Title="Animal Match Picker Game" Height="500" Width="500">
     <Grid x:Name="mainGrid" RenderTransformOrigin="0.5,0.424">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -39,7 +39,7 @@
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" Grid.Column="3" Grid.Row="1" Width="95" MouseDown="AnimalClicked"/>
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" Grid.Column="3" Grid.Row="2" Width="95" MouseDown="AnimalClicked"/>
         <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="?" VerticalAlignment="Center" FontSize="36" Grid.Column="3" Grid.Row="3" Width="95" MouseDown="AnimalClicked"/>
-        <TextBlock x:Name="TimerTextBlock"  Text="Elapsed Time:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"  Grid.Row="4" Grid.ColumnSpan="4" Padding="20" MouseDown="TimerTextBlock_Clicked"/>
+        <TextBlock x:Name="TimerTextBlock"  Text="Timer:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"  Grid.Row="4" Grid.ColumnSpan="4" Padding="20" MouseDown="TimerTextBlock_Clicked"/>
 
 
     </Grid>
